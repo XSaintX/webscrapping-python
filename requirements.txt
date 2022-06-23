@@ -1,0 +1,4 @@
+bs4
+requests
+flask==2.1.2
+gunicorn
