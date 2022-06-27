@@ -25,10 +25,13 @@
                     data: JSON.stringify({sendinfo:$("#product").val()}),
                     contentType: 'application/json; charset=utf-8',
                     success:function(response){
+                        console.log('values');
+                        console.log(response);
                         addCode(response);
+
                     },
                     error:function(response){
-                        console.log('error')
+                        console.log('error');
                     }
                 })
             });
@@ -39,7 +42,7 @@
                 arrHead = ['Description', 'Go there'];
                 var tr = table.insertRow(-1);
                 for (var h = 0; h < arrHead.length; h++) {
-                    var th = document.createElement('th');              // TABLE HEADER.
+                    var th = document.createElement('th');              
                     th.innerHTML = arrHead[h];
                     tr.appendChild(th);
                 }
@@ -47,10 +50,10 @@
                     tr = table.insertRow(-1);
 
                     for (var j = 0; j < 2; j++) {
-                        var td = document.createElement('td');          // TABLE DEFINITION.
+                        var td = document.createElement('td');         
                         td = tr.insertCell(-1);
                         if (j==0){
-                            td.innerHTML = data["texto"][c];            // ADD VALUES TO EACH CELL.                
+                            td.innerHTML = data["texto"][c];            
                         }
                         else{
                             td.innerHTML = '<button onclick= "window.open(\''+data["links"][c]+ '\')",_blank)";>Click here</button>';

@@ -13,7 +13,6 @@ def index():
 def amazon():
     request_data = request.get_json()
     mytext=request_data['sendinfo']
-    #word='earphones'
     url='https://www.amazon.com/s?k={0}'.format(mytext)
     headers={"FUser":"XSaint","user-agent":"XSaint"}
     
