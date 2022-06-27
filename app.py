@@ -20,7 +20,11 @@ def amazon():
     if r.status_code==200:
         soup = BeautifulSoup(r.content, 'html.parser')
         urls=soup.find('div', attrs={"class":"s-main-slot s-result-list s-search-results sg-row"}).find_all('a',attrs={"class":"a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal"})
+        print('urls')
+        print(urls)
         urls_2=["https://www.amazon.com"+ i.get('href') for i in urls[0:10]]
+        print('urls_2')
+        print(urls_2)
         aux = []
         for k in urls[0:10]:
             rating = k.find('span', class_='a-size-medium a-color-base a-text-normal')
@@ -36,4 +40,4 @@ def amazon():
 
 
 if __name__=="__main__":
-    app.run(debug=True, port=5000,host="0.0.0.0")
+    app.run(port=5000, debug=True)
